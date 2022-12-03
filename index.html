@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Генератор</title>
+</head>
+<style>
+    #tasks {
+      text-align: center;
+      display: block;
+    }
+
+    .modal {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    label {
+        max-width: 100px;
+        margin-top: 20px;
+    }
+
+    button {
+        margin-top: 20px;
+        text-align: center;
+        margin-left: auto;
+    }
+
+    #numberOfTasks {
+        max-width: 83px;
+    }
+
+    #tasks > form {
+        margin-bottom: 20px;
+    }
+
+    #tasks > form > input {
+        max-width: 75px;
+    }
+
+    #buttons {
+        margin-left: 100px;
+        display: none;
+    }
+</style>
+<body>
+    <div id="home-form">
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <form>
+                <label for="operations">Избери операция: </label> <br>
+                <input type="radio" id="addition" name="operation" value="addition" checked="true">
+                <label for="html">Събиране</label><br>
+                <input type="radio" id="diff" name="operation" value="diff">
+                <label for="css">Изваждане</label><br>
+                </select>
+              </form>
+              <br>
+              <form>
+                <label for="numberOfTasks">Брой уравнения: </label>
+                <input id="numberOfTasks" type="number" value="20"/>
+              </form>
+              <button onclick="generate()">Генерирай</button>
+            </div>
+          
+          </div>
+    </div>
+    <div id="tasks">
+    </div>
+
+    <div id="buttons">
+        <button onclick="checkAnswers()">Провери</button>
+        <button onclick="showModal()">Генерирай нови</button>
+    </div>
+</body>
+</html>
